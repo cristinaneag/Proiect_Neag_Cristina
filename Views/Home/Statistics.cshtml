@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Proiect_Neag_Cristina.Models.StoreViewzModels.OrderGroup>
+@{
+    ViewData["Title"] = "Ordered Perfumes Statistics";
+}
+<h2>Ordered Books Statistics</h2>
+<table>
+    <tr>
+        <th>
+            Order Date
+        </th>
+        <th>
+            Ordered Perfumes
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @item.PerfumeCount
+            </td>
+        </tr>
+    }
+</table>
