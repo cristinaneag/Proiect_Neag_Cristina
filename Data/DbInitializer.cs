@@ -32,6 +32,7 @@ namespace Proiect_Neag_Cristina.Data
             {
                 new Customer{CustomerID=1050,Name="Avram Mihaela",BirthDate=DateTime.Parse("1990-12-21")},
                 new Customer{CustomerID=1045,Name="Mihai Ovidiu",BirthDate=DateTime.Parse("1993-01-03")},
+                new Customer{CustomerID=1048,Name="Ilie Andreea",BirthDate=DateTime.Parse("2001-11-04")},
             };
             foreach (Customer c in customers)
             {
@@ -44,7 +45,7 @@ namespace Proiect_Neag_Cristina.Data
                 new Order{PerfumeID=1,CustomerID=1050,OrderDate=DateTime.Parse("02-25-2020")},
                 new Order{PerfumeID=3,CustomerID=1045,OrderDate=DateTime.Parse("09-28-2020")},
                 new Order{PerfumeID=1,CustomerID=1045,OrderDate=DateTime.Parse("10-28-2020")},
-                new Order{PerfumeID=2,CustomerID=1050,OrderDate=DateTime.Parse("09-28-2020")},
+                new Order{PerfumeID=2,CustomerID=1048,OrderDate=DateTime.Parse("09-28-2020")},
                 new Order{PerfumeID=4,CustomerID=1050,OrderDate=DateTime.Parse("09-28-2020")},
                 new Order{PerfumeID=6,CustomerID=1050,OrderDate=DateTime.Parse("10-28-2020")},
             };

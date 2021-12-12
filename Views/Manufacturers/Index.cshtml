@@ -1,41 +1,113 @@
-﻿@model IEnumerable<Proiect_Neag_Cristina.Models.Manufacturer>
-
+﻿@model Proiect_Neag_Cristina.Models.StoreViewModels.ManufacturerIndexData
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Manufacturers";
 }
-
-<h1>Index</h1>
-
+<h2>Publishers</h2>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cui)
-            </th>
+            <th>Manufacturer Name</th>
+            <th>Cif</th>
+            <th>Perfumes</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cui)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Manufacturers)
+        {
+            string selectedRow = "";
+            if (item.ID == (int?)ViewData["ManufacturerID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cui)
+                </td>
+                <td>
+                    @{
+                        foreach (var perfume in item.ManufacturedPerfumes)
+                        {
+                            @perfume.Perfume.ID @: @perfume.Perfume.Name <br />
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@if (Model.Perfumes != null)
+{
+    <h3>Perfumes manufactured by Selected Manufacturer</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Weight</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var item in Model.Perfumes)
+        {
+            string selectedRow = "";
+            if (item.ID == (int?)ViewData["PerfumeID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { perfumeID = item.ID })
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Brand
+                </td>
+                <td>
+                    @item.Weight
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.Orders != null)
+{
+    <h3>
+        Customers that have ordered the Selected Perfume
+    </h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Order Date</th>
+        </tr>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td>
+                    @item.Customer.Name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+            </tr>
+        }
+    </table>
+}

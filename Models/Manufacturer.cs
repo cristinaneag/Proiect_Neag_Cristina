@@ -9,7 +9,7 @@ namespace Proiect_Neag_Cristina.Models
         public int ID { get; set; }
 
         [Required]
-        [Display(Name = "Brand Name")]
+        [Display(Name = "Manufacturer Name")]
         [StringLength(50)]
         public string Name { get; set; }
         public string Cui { get; set; }
