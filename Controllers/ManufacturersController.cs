@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proiect_Neag_Cristina.Data;
@@ -10,6 +11,7 @@ using Proiect_Neag_Cristina.Models.StoreViewModels;
 
 namespace Proiect_Neag_Cristina.Controllers
 {
+    [Authorize(Policy = "OnlySales")]
     public class ManufacturersController : Controller
     {
         private readonly PerfumeStoreContext _context;

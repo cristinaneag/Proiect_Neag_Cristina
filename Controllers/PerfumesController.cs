@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using Proiect_Neag_Cristina.Models;
 
 namespace Proiect_Neag_Cristina.Controllers
 {
+    [Authorize(Roles = "Employee")]
     public class PerfumesController : Controller
     {
         private readonly PerfumeStoreContext _context;
@@ -20,6 +22,7 @@ namespace Proiect_Neag_Cristina.Controllers
         }
 
         // GET: Perfumes
+        [AllowAnonymous]
         public async Task<IActionResult> Index(string sortOrder,
                 string currentFilter,
                 string searchString,
@@ -75,6 +78,7 @@ namespace Proiect_Neag_Cristina.Controllers
         }
 
         // GET: Perfumes/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

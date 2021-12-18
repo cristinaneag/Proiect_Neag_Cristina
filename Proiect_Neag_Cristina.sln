@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proiect_Neag_Cristina", "Proiect_Neag_Cristina.csproj", "{274B0C39-D1AA-492B-B170-7D7FB9922229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proiect_Neag_Cristina", "Proiect_Neag_Cristina.csproj", "{274B0C39-D1AA-492B-B170-7D7FB9922229}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfumeStoreWebAPI", "..\PerfumeStoreWebAPI\PerfumeStoreWebAPI.csproj", "{7DD5D86E-A53F-475D-B122-D08FCA463AF2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfumeStoreModel", "..\PerfumeStoreModel\PerfumeStoreModel.csproj", "{45CC077E-24D0-419B-9A17-63674E63FC55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{274B0C39-D1AA-492B-B170-7D7FB9922229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{274B0C39-D1AA-492B-B170-7D7FB9922229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{274B0C39-D1AA-492B-B170-7D7FB9922229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DD5D86E-A53F-475D-B122-D08FCA463AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DD5D86E-A53F-475D-B122-D08FCA463AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DD5D86E-A53F-475D-B122-D08FCA463AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DD5D86E-A53F-475D-B122-D08FCA463AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45CC077E-24D0-419B-9A17-63674E63FC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45CC077E-24D0-419B-9A17-63674E63FC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45CC077E-24D0-419B-9A17-63674E63FC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45CC077E-24D0-419B-9A17-63674E63FC55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
