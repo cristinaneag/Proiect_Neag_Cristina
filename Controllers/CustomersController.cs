@@ -18,7 +18,7 @@ namespace Proiect_Neag_Cristina.Controllers
     public class CustomersController : Controller
     {
         private readonly PerfumeStoreContext _context;
-        private string _baseUrl = "http://localhost:57052/api/Customers";
+        private string _baseUrl = "http://localhost:41154/api/Customers";
 
         public CustomersController(PerfumeStoreContext context)
         {

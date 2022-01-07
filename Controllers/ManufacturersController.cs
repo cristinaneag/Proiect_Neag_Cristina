@@ -121,7 +121,7 @@ namespace Proiect_Neag_Cristina.Controllers
                     IsManufactured = manufacturerPerfumes.Contains(perfume.ID)
                 });
             }
-            ViewData["Books"] = viewModel;
+            ViewData["Perfumes"] = viewModel;
         }
 
         // POST: Manufacturers/Edit/5
@@ -129,7 +129,7 @@ namespace Proiect_Neag_Cristina.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, string[] selectedPerfume)
+        public async Task<IActionResult> Edit(int? id, string[] selectedPerfumes)
         {
             if (id == null)
             {
@@ -145,7 +145,7 @@ namespace Proiect_Neag_Cristina.Controllers
             "",
             i => i.Name, i => i.Cui))
             {
-                UpdatePublishedBooks(selectedPerfume, manufacturerToUpdate);
+                UpdateManufacturedPerfumes(selectedPerfumes, manufacturerToUpdate);
                 try
                 {
                     await _context.SaveChangesAsync();
@@ -157,11 +157,11 @@ namespace Proiect_Neag_Cristina.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            UpdatePublishedBooks(selectedPerfume, manufacturerToUpdate);
+            UpdateManufacturedPerfumes(selectedPerfumes, manufacturerToUpdate);
             PopulateManufacturedPerfumesData(manufacturerToUpdate);
             return View(manufacturerToUpdate);
         }
-        private void UpdatePublishedBooks(string[] selectedPerfumes, Manufacturer manufacturerToUpdate)
+        private void UpdateManufacturedPerfumes(string[] selectedPerfumes, Manufacturer manufacturerToUpdate)
         {
             if (selectedPerfumes == null)
             {

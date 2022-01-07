@@ -24,38 +24,40 @@
                 <span asp-validation-for="Cui" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <tr>
+
+                            @{
+                                int cnt = 0;
+                                List<Proiect_Neag_Cristina.Models.StoreViewModels.ManufacturedPerfumesData> perfumes = ViewBag.Perfumes;
+                                foreach (var perfume in perfumes)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedPerfumes"
+                                               value="@perfume.PerfumeID"
+                                               @(Html.Raw(perfume.IsManufactured ? "checked=\"checked\"" : "")) />
+                                        @perfume.PerfumeID @: @perfume.Name
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
     </div>
 </div>
 
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        <table>
-            <tr>
-                @{
-                    int cnt = 0;
-                    List<Proiect_Neag_Cristina.Models.StoreViewModels.ManufacturedPerfumesData> perfumes = ViewBag.Perfumes;
-                    foreach (var perfume in perfumes)
-                    {
-                        if (cnt++ % 3 == 0)
-                        {
-                        @:</tr><tr>
-                        }
-                        @:<td>
-                            <input type="checkbox"
-                                   name="selectedPerfumes"
-                                   value="@perfume.PerfumeID"
-                                   @(Html.Raw(perfume.IsManufactured ? "checked=\"checked\"" : "")) />
-                            @perfume.PerfumeID @: @perfume.Name
-                        @:</td>
-                    }
-                @:</tr>
-                }
-            </table>
-        </div>
-    </div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>
